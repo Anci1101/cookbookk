@@ -1,5 +1,3 @@
-
-import { Box } from '@mui/system'
 import React from 'react'
 import CreateForm from '../components/CreateForm'
 import NavBar from '../components/NavBar'
