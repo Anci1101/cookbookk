@@ -1,9 +1,18 @@
 import React from 'react'
+import BasicPagination from '../components/BasicPagination'
+import NavBar from '../components/NavBar'
+import RecipeList from '../components/RecipeList'
 
 const Home = () => {
     return (
+        
         <div>
-            <h2>Home page</h2>
+            <NavBar/>
+            
+            <RecipeList/>
+            
+            <BasicPagination/>
+            
         </div>
     )
 }

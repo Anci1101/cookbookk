@@ -1,9 +1,14 @@
+
+import { Box } from '@mui/system'
 import React from 'react'
+import CreateForm from '../components/CreateForm'
+import NavBar from '../components/NavBar'
 
 const Create = () => {
     return (
         <div>
-            <h2>Create page</h2>
+            <NavBar/>
+            <CreateForm/>
         </div>
     )
 }
