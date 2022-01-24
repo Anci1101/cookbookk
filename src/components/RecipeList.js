@@ -2,8 +2,6 @@ import { Grid } from '@mui/material'
 import React from 'react'
 import RecipeCard from './RecipeCard';
 
-const examples = ['Ana', 'pera', 'mika', 'jimmy', 'nadja', 'steva', 'brasno', 'palacinke', 'random']
-
 
 
 const RecipeList = ({recipes}) => {
