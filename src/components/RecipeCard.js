@@ -3,6 +3,9 @@ import React from 'react'
 import AvTimerIcon from '@mui/icons-material/AvTimer';
 import { Box } from '@mui/system';
 
+//TODO: add average time to be dynamic
+
+
 
 const RecipeCard = ({recipe}) => {
     return (

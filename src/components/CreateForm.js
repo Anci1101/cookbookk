@@ -1,10 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import fetchCategories from '../redux/actions/fetchCategories'
 
 const CreateForm = () => {
+
+    const [selectedCategory, setSelectedCategory] = useState('');
+
+    const handlecategory = (e) => {
+        setSelectedCategory(e.target.value)
+    }
 
     const dispatch = useDispatch()
 
@@ -48,21 +54,18 @@ const CreateForm = () => {
                         <Select
                             labelId="demo-simple-select-standard-label"
                             id="demo-simple-select-standard"
-                            value=''
-                            // onChange={handleChange}
+                            value={selectedCategory}
+                            onChange={handlecategory}
                             label="Recipe categories"
                             fullWidth
                             >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                            {categories && categories.map((category)=>(
+                                <MenuItem key={category.id} value={category.title}>{category.title}</MenuItem>
+                            ))}
                         </Select>
                     </FormControl>
                     
-                    <Button>Submit</Button>
+                    <Button>Add recipe</Button>
 
                 </Grid>
 
