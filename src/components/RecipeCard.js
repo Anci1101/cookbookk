@@ -11,11 +11,11 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-const RecipeCard = ({item}) => {
+const RecipeCard = ({recipe}) => {
     return (
             <Grid item xs={12} sm={4} md={4}>
-                <Item>{item}
-                    <Typography>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis aliquid odit natus incidunt, harum velit quisquam minus similique tenetur aliquam nesciunt libero nihil veniam reprehenderit inventore, et ratione quis cum aperiam. Doloribus quas nisi molestiae perferendis. Magnam ea tenetur sunt fuga nam, in illum, maiores maxime blanditiis, facilis laboriosam ipsa.</Typography>
+                <Item>{recipe.title}
+                    <Typography>{recipe.description}</Typography>
                 </Item>
             </Grid>
     )

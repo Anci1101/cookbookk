@@ -6,7 +6,7 @@ const examples = ['Ana', 'pera', 'mika', 'jimmy', 'nadja', 'steva', 'brasno', 'p
 
 
 
-const RecipeList = () => {
+const RecipeList = ({recipes}) => {
     return (
         <div style={{display: 'flex',
                      alignContent:'center', 
@@ -14,8 +14,8 @@ const RecipeList = () => {
                      alignItems:'center', 
                      padding:50}}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                {examples.map((item, index)=>(
-                    <RecipeCard xs={12} sm={4} md={4} key={index} item={item}/>
+                {recipes.map((recipe)=>(
+                    <RecipeCard xs={12} sm={4} md={4} key={recipe.id} recipe={recipe}/>
                     
                 ))}
             </Grid>
