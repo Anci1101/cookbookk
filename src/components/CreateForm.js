@@ -1,7 +1,21 @@
-import React from 'react';
-import { Button, Container, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
+import React, { useEffect } from 'react';
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import fetchCategories from '../redux/actions/fetchCategories'
 
 const CreateForm = () => {
+
+    const dispatch = useDispatch()
+
+    const categories = useSelector((state) => state.category.categories) 
+    console.log(categories, 'categories');
+
+    useEffect(() => {
+        dispatch(fetchCategories())
+    }, [dispatch])
+
+
   return (
     <Grid container style={{display:'flex', alignItems:'center', justifyContent:'center', alignContent:'center', flexDirection:'column'}}> 
                 
@@ -28,7 +42,7 @@ const CreateForm = () => {
                         variant="standard"
                         fullWidth
                     />
-                    <TextField label='Preparing time' variant='standard' fullWidth/>
+                    <TextField label='Preparing time in minutes' variant='standard' fullWidth/>
                     <FormControl variant="standard" sx={{ m: 1, minWidth: 260 }}>
                         <InputLabel id="demo-simple-select-standard-label">Recipe category</InputLabel>
                         <Select
