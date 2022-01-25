@@ -7,7 +7,7 @@ import { Box } from '@mui/system';
 
 
 
-const RecipeCard = ({recipe}) => {
+const RecipeCard = ({recipe, handleDeleteRecipe}) => {
     return (
             <Grid item xs={12} sm={4} md={4} >
                 <Card>
@@ -23,11 +23,13 @@ const RecipeCard = ({recipe}) => {
 
                     <CardActions style={{display:'flex', justifyContent:'center', gap:'10px'}}>
                         <Button variant='outlined'>More info</Button>
-                        <Button variant='outlined'>Delete</Button>
+                        <Button  onClick={()=> handleDeleteRecipe(recipe.id)} variant='outlined'>Delete</Button>
                     </CardActions>
                 </Card>
             </Grid>
     )
 }
+
+
 
 export default RecipeCard
