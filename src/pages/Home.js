@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import BasicPagination from '../components/BasicPagination'
@@ -16,6 +16,8 @@ const Home = () => {
     const pending = useSelector((state) => state.recipe.pending) 
     const error = useSelector((state) => state.recipe.error) 
 
+    const [currentCategory, setCurrentCategory] = useState('');
+
     useEffect(() => {
         const fecthData = () => {
              dispatch(fetchRecipes())
@@ -24,15 +26,24 @@ const Home = () => {
         fecthData()
     
     }, [dispatch]);
+
+    const handleSearchCategory = (e, value) => {
+        setCurrentCategory(value)
+        console.log(value, 'search value');
+    }
+
+    const filteredRecipesByCurrentCategory = (recipes, currentCategory) => {
+        return recipes.filter((recipe)=>recipe.category === currentCategory)
+    }
     
 
     return (
         
         <div>
-            <NavBar/>
+            <NavBar handleSearchCategory={handleSearchCategory}/>
             {pending && <div>loading...</div>}
             {error && <div>sth went wrong</div>}
-            {recipes &&  <RecipeList recipes={recipes}/> }
+            {recipes &&  <RecipeList recipes={currentCategory ? filteredRecipesByCurrentCategory(recipes, currentCategory) : recipes}/> }
             
             <BasicPagination/>
             

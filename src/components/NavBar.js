@@ -1,4 +1,4 @@
-import { AppBar, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
+import { AppBar, Autocomplete, Button, Container, IconButton, Menu, MenuItem, TextField, Toolbar, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
@@ -6,6 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Box } from '@mui/system'
 import React from 'react'
 import { useNavigate } from 'react-router'
+import SearchInput from './SearchInput';
 // import { Search } from '@mui/icons-material';
 
 
@@ -65,7 +66,7 @@ const pages = [
 
     
 
-const NavBar = () => {
+const NavBar = ({handleSearchCategory}) => {
 
     const navigate = useNavigate()
 
@@ -142,13 +143,15 @@ const NavBar = () => {
                         ))}
                     </Box>
                     <Search>
-                        <SearchIconWrapper>
+                        <SearchInput handleSearchCategory={handleSearchCategory}/>
+                        {/* <SearchIconWrapper>
                             <SearchIcon />
-                        </SearchIconWrapper>
-                        <StyledInputBase
+                        </SearchIconWrapper> */}
+                        
+                        {/* <StyledInputBase
                             placeholder="Search…"
                             inputProps={{ 'aria-label': 'search' }}
-                        />
+                        /> */}
                     </Search>
                     <Box sx={{ flexGrow: 1 }} />
                 </Toolbar> 
