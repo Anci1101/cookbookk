@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar'
 const Create = () => {
     return (
         <div>
-            <NavBar/>
+            <NavBar showSearchInput={false}/>
             <CreateForm/>
         </div>
     )

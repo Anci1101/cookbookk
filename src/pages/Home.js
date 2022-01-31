@@ -40,7 +40,7 @@ const Home = () => {
     return (
         
         <div>
-            <NavBar handleSearchCategory={handleSearchCategory}/>
+            <NavBar handleSearchCategory={handleSearchCategory} showSearchInput={true}/>
             {pending && <div>loading...</div>}
             {error && <div>sth went wrong</div>}
             {recipes &&  <RecipeList recipes={currentCategory ? filteredRecipesByCurrentCategory(recipes, currentCategory) : recipes}/> }

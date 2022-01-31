@@ -66,7 +66,7 @@ const pages = [
 
     
 
-const NavBar = ({handleSearchCategory}) => {
+const NavBar = ({handleSearchCategory, showSearchInput}) => {
 
     const navigate = useNavigate()
 
@@ -142,7 +142,8 @@ const NavBar = ({handleSearchCategory}) => {
                             </Button>
                         ))}
                     </Box>
-                    <Search>
+                    {showSearchInput && 
+                        <Search>
                         <SearchInput handleSearchCategory={handleSearchCategory}/>
                         {/* <SearchIconWrapper>
                             <SearchIcon />
@@ -153,6 +154,8 @@ const NavBar = ({handleSearchCategory}) => {
                             inputProps={{ 'aria-label': 'search' }}
                         /> */}
                     </Search>
+                    }
+                    
                     <Box sx={{ flexGrow: 1 }} />
                 </Toolbar> 
             </Container>  
@@ -160,5 +163,6 @@ const NavBar = ({handleSearchCategory}) => {
         </div>
     )
 }
+
 
 export default NavBar
