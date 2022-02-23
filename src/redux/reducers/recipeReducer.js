@@ -1,6 +1,6 @@
 import { FETCH_PRECIPES_PENDING, FETCH_PRECIPES_SUCCESS, FETCH_PRECIPES_ERROR } from '../actions/recipeActions'
 import { DELETE_RECIPE_SUCCESS } from '../actions/deleteRecipeActions'
-// import { ADD_PRECIPES_SUCCESS } from '../actions/addRecipeActions'
+import { ADD_PRECIPES_SUCCESS } from '../actions/addRecipeActions'
 
 const initialState = {
     pending: false,
@@ -35,12 +35,12 @@ const recipeReducer = (state = initialState, action) => {
                 ...state,
                 recipes: state.recipes.filter((recipe) => recipe.id !== action.payload)
             }
-        // case ADD_PRECIPES_SUCCESS:
-        //     return {
-        //         ...state,
-        //         recipes: [state.recipes, action.payload]
+        case ADD_PRECIPES_SUCCESS:
+            return {
+                ...state,
+                recipes: [state.recipes, action.payload]
 
-        //     }
+            }
         default: 
             return state;
     }
