@@ -23,11 +23,4 @@ export const fetchRecipesError = (error) => {
     }
 }
 
-export const deleteRecipe = (id) => {
-    return{
-        type: DELETE_RECIPE,
-        payload: id
-    }
-}
-
 
