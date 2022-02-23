@@ -143,7 +143,7 @@ const NavBar = ({handleSearchCategory, showSearchInput}) => {
                         ))}
                     </Box>
                     {showSearchInput && 
-                        <Search>
+                        <Search style={{width:'300px'}}>
                         <SearchInput handleSearchCategory={handleSearchCategory}/>
                         {/* <SearchIconWrapper>
                             <SearchIcon />
