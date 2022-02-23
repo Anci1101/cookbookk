@@ -11,10 +11,10 @@ const Home = () => {
     const dispatch = useDispatch()
 
     const recipes = useSelector((state)=> state.recipe.recipes)
-
-    
     const pending = useSelector((state) => state.recipe.pending) 
     const error = useSelector((state) => state.recipe.error) 
+
+    const [currentPageState, setCurrentPageState] = useState(1)
 
     const [currentCategory, setCurrentCategory] = useState('');
 
@@ -43,9 +43,13 @@ const Home = () => {
             <NavBar handleSearchCategory={handleSearchCategory} showSearchInput={true}/>
             {pending && <div>loading...</div>}
             {error && <div>sth went wrong</div>}
-            {recipes &&  <RecipeList recipes={currentCategory ? filteredRecipesByCurrentCategory(recipes, currentCategory) : recipes}/> }
+            {recipes &&  <RecipeList 
+                            recipes={currentCategory ? filteredRecipesByCurrentCategory(recipes, currentCategory) : recipes}
+                            currentPageState={currentPageState} setCurrentPageState={setCurrentPageState}
+                        />
+            }
             
-            <BasicPagination/>
+            {/* <BasicPagination/> */}
             
         </div>
     )
