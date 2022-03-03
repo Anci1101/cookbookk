@@ -39,7 +39,7 @@ const RecipeCard = ({recipe, handleDeleteRecipe}) => {
                             <Box style={{display:'flex'}}>
                                 <Typography style={{flexGrow:'1'}} variant='subtitle1'>{recipe.category}</Typography>
                                 <AvTimerIcon/>
-                                <Typography>90 min</Typography>
+                                <Typography>{recipe.time} min</Typography>
                             </Box>
                         <Typography display='inline' variant='body2' >{recipe.description}</Typography>
                     </CardContent>
