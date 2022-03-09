@@ -1,6 +1,6 @@
-import { FETCH_PRECIPES_PENDING, FETCH_PRECIPES_SUCCESS, FETCH_PRECIPES_ERROR } from '../actions/recipeActions'
+import { FETCH_RECIPES_PENDING, FETCH_RECIPES_SUCCESS, FETCH_RECIPES_ERROR } from '../actions/recipeActions'
 import { DELETE_RECIPE_SUCCESS } from '../actions/deleteRecipeActions'
-import { ADD_PRECIPES_SUCCESS } from '../actions/addRecipeActions'
+import { ADD_RECIPES_SUCCESS } from '../actions/addRecipeActions'
 
 const initialState = {
     pending: false,
@@ -12,19 +12,19 @@ const initialState = {
 
 const recipeReducer = (state = initialState, action) => {
     switch(action.type) {
-        case FETCH_PRECIPES_PENDING: 
+        case FETCH_RECIPES_PENDING: 
             return {
                 ...state,
                 pending: true
             }
-        case FETCH_PRECIPES_SUCCESS:
+        case FETCH_RECIPES_SUCCESS:
             console.log('got');
             return {
                 ...state,
                 pending: false,
                 recipes: action.payload
             }
-        case FETCH_PRECIPES_ERROR:
+        case FETCH_RECIPES_ERROR:
             return {
                 ...state,
                 pending: false,
@@ -35,7 +35,7 @@ const recipeReducer = (state = initialState, action) => {
                 ...state,
                 recipes: state.recipes.filter((recipe) => recipe.id !== action.payload)
             }
-        case ADD_PRECIPES_SUCCESS:
+        case ADD_RECIPES_SUCCESS:
             return {
                 ...state,
                 recipes: [state.recipes, action.payload]
