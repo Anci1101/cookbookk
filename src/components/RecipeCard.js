@@ -33,7 +33,7 @@ const RecipeCard = ({recipe, handleDeleteRecipe}) => {
 
     return (
             <Grid item xs={12} sm={4} md={4} >
-                <Card>
+                <Card >
                     <CardContent>
                         <Typography variant='h6'>{recipe.title}</Typography>
                             <Box style={{display:'flex'}}>
@@ -41,7 +41,7 @@ const RecipeCard = ({recipe, handleDeleteRecipe}) => {
                                 <AvTimerIcon/>
                                 <Typography>{recipe.time} min</Typography>
                             </Box>
-                        <Typography display='inline' variant='body2' >{recipe.description}</Typography>
+                        <Typography style={{whiteSpace:'noWrap', overflow:'hidden', textOverflow: 'ellipsis' }} display='block' variant='body2' >{recipe.description}</Typography>
                     </CardContent>
 
                     <CardActions style={{display:'flex', justifyContent:'center', gap:'10px'}}>
