@@ -30,16 +30,16 @@ const RecipeList = ({recipes, currentPageState, setCurrentPageState}) => {
 
 
     return (
-        <div>
         <div style={{display: 'flex',
                      alignContent:'center', 
                      justifyContent:'center', 
                      alignItems:'center', 
                      flexDirection:'column',
-                     padding:50}}>
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                     padding:50}}
+        >
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 8, md: 12 }}>
                 {currentPosts.map((recipe)=>(
-                    <RecipeCard xs={12} sm={4} md={4} key={recipe.id} recipe={recipe} handleDeleteRecipe={handleDeleteRecipe}/>
+                    <RecipeCard key={recipe.id} recipe={recipe} handleDeleteRecipe={handleDeleteRecipe}/>
                     
                 ))}
             </Grid>
@@ -50,13 +50,6 @@ const RecipeList = ({recipes, currentPageState, setCurrentPageState}) => {
                              handleChange={(event, page)=>handleChange(event, page)}
             />
 
-           
-            </div>
-            {/* <BasicPagination postsPerPage={postsPerPage}
-                             totalRecipes={recipes.length}
-                             page={currentPageState}
-                             handleChange={(event, page)=>handleChange(event, page)}
-            /> */}
         </div>
     )
 }

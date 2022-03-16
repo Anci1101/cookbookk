@@ -32,16 +32,23 @@ const RecipeCard = ({recipe, handleDeleteRecipe}) => {
       }, [open]);
 
     return (
-            <Grid item xs={12} sm={4} md={4} >
-                <Card >
+            <Grid item xs={12} sm={4} md={4}  >
+                <Card>
                     <CardContent>
-                        <Typography variant='h6'>{recipe.title}</Typography>
+                        <Box>
+                            <Typography variant='h6'>{recipe.title}</Typography>
+                        </Box>
+                       
                             <Box style={{display:'flex'}}>
                                 <Typography style={{flexGrow:'1'}} variant='subtitle1'>{recipe.category}</Typography>
                                 <AvTimerIcon/>
                                 <Typography>{recipe.time} min</Typography>
                             </Box>
-                        <Typography style={{whiteSpace:'noWrap', overflow:'hidden', textOverflow: 'ellipsis' }} display='block' variant='body2' >{recipe.description}</Typography>
+
+                        <Box>
+                            <Typography  style={{ whiteSpace:'noWrap', overflow:'hidden', textOverflow: 'ellipsis' }} display='block' variant='body2' >{recipe.description}</Typography>
+                        </Box>
+                        
                     </CardContent>
 
                     <CardActions style={{display:'flex', justifyContent:'center', gap:'10px'}}>
@@ -52,12 +59,13 @@ const RecipeCard = ({recipe, handleDeleteRecipe}) => {
 
                 <Dialog
                     open={open}
-                     
+                     //style={{width:'600px'}}
                     //TransitionComponent={Transition}
                     keepMounted
                     scroll={scroll}
                     onClose={handleClose}
                     aria-describedby="alert-dialog-slide-description"
+                    fullWidth={true}
                 >
                     <DialogTitle>{recipe.title}</DialogTitle>
                     <DialogContent sx={{display:'flex'}}>
